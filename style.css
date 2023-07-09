@@ -1,0 +1,52 @@
+#clk_shp{
+    width:20vw;
+    height:20vw;
+    border :2px solid black;
+    border-radius:10vw;
+    margin:0 auto;
+    display:grid;
+    align-items:center;
+    justify-content:end;
+    grid-template-columns: auto auto ;
+    grid-column-gap: 1vw;
+    background-image:linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0));
+
+}
+#Time{
+    font-size: 4vw;
+    
+}
+#meri{
+    font-size: 2vw;
+}
+#date{
+    text-align:center;
+    font-size :2vw;
+    width :10vw;
+    margin:40px auto;
+    border:3px solid black;
+}
+#note
+{
+    text-align:center;
+    color:black;
+}
+@media screen and (max-width:850px)
+{
+    #clk_shp{
+        width:170px;
+        height:170px;
+        border-radius:85px;
+    }
+    #Time
+    {
+        font-size :34px;
+    }
+    #meri{
+    font-size: 20.4px;
+}
+#date{
+    width:85px;
+    font-size:17px;
+}
+}
