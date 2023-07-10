@@ -10,22 +10,23 @@ let nhrs = document.getElementById("nh");
 let ana_func = setInterval(func,100);
 digclk.checked = true;//Initially digital is selected
 digcheck();
-digclk.addEventListener("click",digcheck);
+dig_cont = document.getElementById("dig_cont");
+ana_cont = document.getElementById("ana_cont");
+dig_cont.addEventListener("click",digcheck);
 function digcheck()
 {
-    if(digclk.checked == true){
+    digclk.checked=true;
     clearInterval(ana_func);
     ana_clk_shp.style.visibility = "hidden";
     nsec.style.visibility="hidden";
     nmin.style.visibility="hidden";
     nhrs.style.visibility="hidden";
     setInterval(current_time,100);
-    
-    }
 }
-anaclk.addEventListener("click",anacheck);
+ana_cont.addEventListener("click",anacheck);
 function anacheck()
 {
+    anaclk.checked=true;
     if(anaclk.checked == true){
     ana_clk_shp.style.visibility = "visible";
     ana_func = setInterval(func,100);

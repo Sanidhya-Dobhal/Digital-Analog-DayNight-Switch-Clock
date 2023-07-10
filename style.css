@@ -184,6 +184,13 @@
     display:flex;
     justify-content:space-evenly;
 }
+.rad_cont:hover{
+    cursor:pointer;
+}
+input[type = "radio"]:hover{
+    opacity:70%;
+    cursor:pointer;
+}
 @media screen and (max-width:850px)
 {
     .clk_shp{
