@@ -9,20 +9,76 @@
 </head>
 <body>
     <div style ="height: 5vw;"></div>
-    <div id= "clk_shp">
+    <div id= "clk_shp_dig" class = "clk_shp">
         <p id = "Time"></p>
         <p id = "meri"></p>
     </div>
-    <div id = "clk_shp_ana">
+    <div id = "clk_shp_ana" class = "clk_shp">
+        <div class = "number" id ="one">
+            <p>1</p>
+        </div>
+        <div class = "number" id ="two">
+            <p>2</p>
+        </div>
+        <div class = "number" id ="three">
+            <p>3</p>
+        </div>
+        <div class = "number" id ="four">
+            <p>4</p>
+        </div>
+        <div class = "number" id ="five">
+            <p>5</p>
+        </div>
+        <div class = "number" id ="six">
+            <p>6</p>
+        </div>
+        <div class = "number" id ="seven">
+            <p>7</p>
+        </div>
+        <div class = "number" id ="eight">
+            <p>8</p>
+        </div>
+        <div class = "number" id ="nine">
+            <p>9</p>
+        </div>
+        <div class = "number" id ="ten">
+            <p>10</p>
+        </div>
+        <div class = "number" id ="eleven">
+            <p>11</p>
+        </div>
+        <div class = "number" id ="tweleve">
+            <p>12</p>
+        </div>
+        <div class = "hands" id = 'nh'>
+
+        </div>
+        <div class = "hands" id = 'nm'>
+            
+        </div>
+        <div class = "hands" id = 'ns'>
+            
+        </div>
+        <div id = center>
+
+        </div>
+    </div>
+    <div id = "to_shift_text_down">
+        <!--This is required to push all the content below the clk_shp div's as both their position is set to absolute-->
     </div>
     <div style = 'height:40px'></div>
-    <div style = "margin:auto;width:10vw">
-    <input type = "radio" name = "kind" id = "digop">digital
-    <input type = "radio" name = "kind"id ="anaop">analog
+    <div  id = "choice">
+    <div>
+    <input type = "radio" name = "kind" id = "digop"> Digital
+    </div>
+    <div>
+    <input type = "radio" name = "kind"id ="anaop"> Analog
+    </div>
     </div>
     <p id = "date"></p>
     <div id = "note">
     <p>This clock is set to Indian Standard Time.</p>
+    <div style = "height:3vh;"></div>
     <p>This clock will be in <b>night mode</b> between <b>9p.m. and 5a.m.</b> </p>
 </div>
 </body>

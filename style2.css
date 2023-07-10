@@ -9,6 +9,7 @@
     margin:0 auto;
     display: flex;
     justify-content:center;
+    grid-column-gap: 1vw;
     background-image:linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0));
 }
 #date{
@@ -173,3 +174,4 @@
 {
     transform:rotate(-330deg);
 }
+

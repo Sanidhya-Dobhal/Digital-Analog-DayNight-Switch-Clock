@@ -8,7 +8,7 @@ let nsec = document.getElementById("ns");
 let nmin = document.getElementById("nm");
 let nhrs = document.getElementById("nh");
 let ana_func = setInterval(func,100);
-digclk.checked = true;
+digclk.checked = true;//Initially digital is selected
 digcheck();
 digclk.addEventListener("click",digcheck);
 function digcheck()
@@ -19,7 +19,7 @@ function digcheck()
     nsec.style.visibility="hidden";
     nmin.style.visibility="hidden";
     nhrs.style.visibility="hidden";
-    setInterval(curr_time,100);
+    setInterval(current_time,100);
     
     }
 }
@@ -28,11 +28,20 @@ function anacheck()
 {
     if(anaclk.checked == true){
     ana_clk_shp.style.visibility = "visible";
-    ana_func = setInterval(func,10);
+    ana_func = setInterval(func,100);
     }
 }
-        function curr_time()
+        function current_time()
         {
+            if(window.innerWidth>850){
+                document.getElementById("clk_shp_ana").style.left =`40vw`;//This can be improved by adding event listener
+                document.getElementById("clk_shp_dig").style.left =`40vw`;//This can be improved by adding event listener
+            }
+            else{
+                let left_sp = (window.innerWidth-170)/2;
+                document.getElementById("clk_shp_ana").style.left =`${left_sp}px`;//This can be improved by adding event listener
+                document.getElementById("clk_shp_dig").style.left =`${left_sp}px`;//This can be improved by adding event listener
+            }
             let meri;//a.m. or p.m.
             let t =" ";
             let curr_time = new Date();
@@ -74,18 +83,7 @@ function anacheck()
                 meri = "A.M.";
                 if(curr_time.getHours()<=10)
                     t = '0' +t;
-
             }
-                if(curr_time.getHours()<5)
-                {
-                    let note = document.getElementById("note");
-                    note.style.color= "rgb(205,205,102)";
-                    let back = document.getElementsByClassName("clk_shp");
-                    back[0].style.backgroundImage = "linear-gradient(to right,rgb(164, 187, 215),rgb(41, 102, 234)";
-                    document.body.style.backgroundColor= "rgb(75,75,75)";
-                    curr_date.style.color ="rgb(250,250,239)";
-                }
-
             if(curr_time.getMinutes()<10)
                 t =t + ":0"+curr_time.getMinutes();
             else
@@ -97,6 +95,7 @@ function anacheck()
             apm.innerText = meri;
             disp.innerText = t;
             complete_date(curr_time);
+            back_color(curr_time);
         }
     //Now for analog clock
     function func()
@@ -124,6 +123,7 @@ function anacheck()
             document.getElementById("clk_shp_dig").style.left =`${left_sp}px`;//This can be improved by adding event listener
         }
         complete_date(curr_time);
+        back_color(curr_time);
     }
     function complete_date(curr_time){
         if(curr_time.getDate()<10)
@@ -135,4 +135,28 @@ function anacheck()
                 else
                 curr_date.innerText += (curr_time.getMonth()+1)+"/";
             curr_date.innerText += curr_time.getFullYear();
+    }
+    function back_color(curr_time)
+    {
+        if(curr_time.getHours()<5||curr_time.getHours()>=21)
+        {
+            let note = document.getElementById("note");
+            note.style.color= "rgb(205,205,102)";
+            let back = document.getElementsByClassName("clk_shp");
+            back[0].style.backgroundImage = "linear-gradient(to right,rgb(164, 187, 215),rgb(41, 102, 234)";
+            back[1].style.backgroundImage = "linear-gradient(to right,rgb(164, 187, 215),rgb(41, 102, 234)";
+            document.body.style.backgroundColor= "rgb(60,60,60)";
+            curr_date.style.color ="rgb(250,250,239)";
+            document.getElementById("choice").style.color= "rgb(250,250,239)";
+         }
+        else
+        {
+            let note = document.getElementById("note");
+            note.style.color= "black";
+            let back = document.getElementsByClassName("clk_shp");
+            back[0].style.backgroundImage = "linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0));";
+            back[0].style.backgroundImage = "linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0));";
+            document.body.style.backgroundColor= "rgb(250,250,255)";
+            curr_date.style.color ="black";
+        }
     }
