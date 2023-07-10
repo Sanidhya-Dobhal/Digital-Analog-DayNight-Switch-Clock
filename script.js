@@ -1,7 +1,36 @@
 let disp = document.getElementById("Time");
 let apm= document.getElementById("meri");
 let curr_date = document.getElementById("date");
-setInterval(curr_time,1000);
+let digclk = document.getElementById("digop");
+let anaclk = document.getElementById("anaop");
+let ana_clk_shp = document.getElementById("clk_shp_ana");
+let nsec = document.getElementById("ns");
+let nmin = document.getElementById("nm");
+let nhrs = document.getElementById("nh");
+let ana_func = setInterval(func,100);
+digclk.checked = true;
+digcheck();
+digclk.addEventListener("click",digcheck);
+function digcheck()
+{
+    if(digclk.checked == true){
+    clearInterval(ana_func);
+    ana_clk_shp.style.visibility = "hidden";
+    nsec.style.visibility="hidden";
+    nmin.style.visibility="hidden";
+    nhrs.style.visibility="hidden";
+    setInterval(curr_time,100);
+    
+    }
+}
+anaclk.addEventListener("click",anacheck);
+function anacheck()
+{
+    if(anaclk.checked == true){
+    ana_clk_shp.style.visibility = "visible";
+    ana_func = setInterval(func,10);
+    }
+}
         function curr_time()
         {
             let meri;//a.m. or p.m.
@@ -26,7 +55,7 @@ setInterval(curr_time,1000);
                 {
                     let note = document.getElementById("note");
                     note.style.color= "rgb(205,205,102)";
-                    let back = document.getElementById("clk_shp");
+                    let back = document.getElementById("clk_shp_dig");
                     back.style.backgroundImage = "linear-gradient(to right,rgb(164, 187, 215),rgb(41, 102, 234)";
                     document.body.style.backgroundColor= "rgb(75,75,75)";
                     curr_date.style.color ="rgb(250,250,239)";
@@ -51,8 +80,8 @@ setInterval(curr_time,1000);
                 {
                     let note = document.getElementById("note");
                     note.style.color= "rgb(205,205,102)";
-                    let back = document.getElementById("clk_shp");
-                    back.style.backgroundImage = "linear-gradient(to right,rgb(164, 187, 215),rgb(41, 102, 234)";
+                    let back = document.getElementsByClassName("clk_shp");
+                    back[0].style.backgroundImage = "linear-gradient(to right,rgb(164, 187, 215),rgb(41, 102, 234)";
                     document.body.style.backgroundColor= "rgb(75,75,75)";
                     curr_date.style.color ="rgb(250,250,239)";
                 }
@@ -70,9 +99,6 @@ setInterval(curr_time,1000);
             complete_date(curr_time);
         }
     //Now for analog clock
-    let nsec = document.getElementById("ns");
-    let nmin = document.getElementById("nm");
-    let nhrs = document.getElementById("nh");
     function func()
     {
         var curr_time = new Date();
@@ -80,11 +106,23 @@ setInterval(curr_time,1000);
         nmin.style.visibility= "visible";
         nhrs.style.visibility= "visible";
         sdeg= curr_time.getSeconds()*6-90;//-90 has been done to convert the horizontal div into vertical div in the starting position(12:00:00 A.M.)
-        nsec.style.transform = `translate(4vw) rotate(${sdeg}deg)`;
         mdeg = curr_time.getMinutes() * 6 -90 +curr_time.getSeconds()*0.1;
-        nmin.style.transform =`translate(4vw) rotate(${mdeg}deg)`;
         hrs = curr_time.getHours()*30 -90 +curr_time.getMinutes()*0.5;
-        nhrs.style.transform = `translate(3vw) rotate(${hrs}deg)`;
+        if(window.innerWidth>850){
+            nsec.style.transform = `translate(4vw) rotate(${sdeg}deg)`;
+            nmin.style.transform =`translate(4vw) rotate(${mdeg}deg)`;
+            nhrs.style.transform = `translate(3vw) rotate(${hrs}deg)`;
+            document.getElementById("clk_shp_ana").style.left =`40vw`;//This can be improved by adding event listener
+            document.getElementById("clk_shp_dig").style.left =`40vw`;//This can be improved by adding event listener
+        }
+        else{
+            nsec.style.transform = `translate(34px) rotate(${sdeg}deg)`;
+            nmin.style.transform =`translate(34px) rotate(${mdeg}deg)`;  
+            nhrs.style.transform = `translate(25.5px) rotate(${hrs}deg)`;
+            let left_sp = (window.innerWidth-170)/2;
+            document.getElementById("clk_shp_ana").style.left =`${left_sp}px`;//This can be improved by adding event listener
+            document.getElementById("clk_shp_dig").style.left =`${left_sp}px`;//This can be improved by adding event listener
+        }
         complete_date(curr_time);
     }
     function complete_date(curr_time){
@@ -98,4 +136,3 @@ setInterval(curr_time,1000);
                 curr_date.innerText += (curr_time.getMonth()+1)+"/";
             curr_date.innerText += curr_time.getFullYear();
     }
-setInterval(func,1000);
