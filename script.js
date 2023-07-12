@@ -7,8 +7,8 @@ let ana_clk_shp = document.getElementById("clk_shp_ana");
 let nsec = document.getElementById("ns");
 let nmin = document.getElementById("nm");
 let nhrs = document.getElementById("nh");
-let ana_func = setInterval(func,100);
-digclk.checked = true;//Initially digital is selected
+let ana_func;//Stores the id of the setInterval function that calls the function func
+digclk.checked = true;//Initially digital would be selected
 digcheck();
 dig_cont = document.getElementById("dig_cont");
 ana_cont = document.getElementById("ana_cont");
@@ -27,21 +27,20 @@ ana_cont.addEventListener("click",anacheck);
 function anacheck()
 {
     anaclk.checked=true;
-    if(anaclk.checked == true){
     ana_clk_shp.style.visibility = "visible";
+    clearInterval(ana_func);//This is required as without this if the analog option is selected twice the there would be 2 setinterval's runnig and then if we select digital then only the alstest setInterval function will be stopped but the others will keep getting executed .Therefore this command will stop all the previous sstinterval's and inly the one that would be in the ana_func variable would be running .
     ana_func = setInterval(func,100);
-    }
 }
         function current_time()
         {
             if(window.innerWidth>850){
-                document.getElementById("clk_shp_ana").style.left =`40vw`;//This can be improved by adding event listener
-                document.getElementById("clk_shp_dig").style.left =`40vw`;//This can be improved by adding event listener
+                document.getElementById("clk_shp_ana").style.left =`40vw`;
+                document.getElementById("clk_shp_dig").style.left =`40vw`;
             }
             else{
                 let left_sp = (window.innerWidth-170)/2;
-                document.getElementById("clk_shp_ana").style.left =`${left_sp}px`;//This can be improved by adding event listener
-                document.getElementById("clk_shp_dig").style.left =`${left_sp}px`;//This can be improved by adding event listener
+                document.getElementById("clk_shp_ana").style.left =`${left_sp}px`;
+                document.getElementById("clk_shp_dig").style.left =`${left_sp}px`;
             }
             let meri;//a.m. or p.m.
             let t =" ";
@@ -52,7 +51,7 @@ function anacheck()
                 meri = "A.M.";
                 let note = document.getElementById("note");
                     note.style.color= "rgb(205,205,102)";
-                    let back = document.getElementById("clk_shp");
+                    let back = document.getElementById("clk_shp_dig");
                     back.style.backgroundImage = "linear-gradient(to right,rgb(164, 187, 215),rgb(41, 102, 234)";
                     document.body.style.backgroundColor= "rgb(75,75,75)";
                     curr_date.style.color ="rgb(250,250,239)";
@@ -155,9 +154,10 @@ function anacheck()
             let note = document.getElementById("note");
             note.style.color= "black";
             let back = document.getElementsByClassName("clk_shp");
-            back[0].style.backgroundImage = "linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0));";
-            back[0].style.backgroundImage = "linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0));";
+            back[0].style.backgroundImage = "linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0))";
+            back[1].style.backgroundImage = "linear-gradient(to right,rgb(255, 111, 0),rgb(221, 255, 0))";
             document.body.style.backgroundColor= "rgb(250,250,255)";
             curr_date.style.color ="black";
+            document.getElementById("choice").style.color= "black";
         }
     }
