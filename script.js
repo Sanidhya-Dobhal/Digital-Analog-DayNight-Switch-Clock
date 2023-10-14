@@ -9,10 +9,19 @@ let nmin = document.getElementById("nm");
 let nhrs = document.getElementById("nh");
 let ana_func;//Stores the id of the setInterval function that calls the function func
 digclk.checked = true;//Initially digital would be selected
+ana_num_rotation();
 digcheck();
 dig_cont = document.getElementById("dig_cont");
 ana_cont = document.getElementById("ana_cont");
 dig_cont.addEventListener("click",digcheck);
+function ana_num_rotation() //This function is used to rotate all the numbers in analog clock which was earlier done in CSS one by one
+{
+    for(i = 1;i<=12;i++)
+    {
+        document.querySelector(`.number:nth-child(${i})`).style.transform = `rotate(${i*30}deg)`;
+        document.querySelector(`.number:nth-child(${i}) p`).style.transform = `rotate(-${i*30}deg)`;
+    }
+}
 function digcheck()
 {
     digclk.checked=true;
@@ -81,7 +90,7 @@ function anacheck()
             {
                 t=curr_time.getHours();
                 meri = "A.M.";
-                if(curr_time.getHours()<=10)
+                if(curr_time.getHours()<10)
                     t = '0' +t;
             }
             if(curr_time.getMinutes()<10)
@@ -130,7 +139,7 @@ function anacheck()
                 curr_date.innerText = "0"+curr_time.getDate()+"/";
             else
                 curr_date.innerText = curr_time.getDate()+"/";
-            if(curr_time.getMonth()<10)
+            if(curr_time.getMonth()<9)
                 curr_date.innerText += "0"+(curr_time.getMonth()+1)+"/";
                 else
                 curr_date.innerText += (curr_time.getMonth()+1)+"/";
