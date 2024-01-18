@@ -157,3 +157,7 @@ input[type = "radio"]:hover{
         width:127.5px;
     }
 }
+.ana_or_dig:hover
+{
+    color: rgb(94, 134, 255);
+}
