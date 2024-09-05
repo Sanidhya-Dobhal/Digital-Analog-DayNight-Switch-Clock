@@ -1,85 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Real time clock</title>
-   <link href = "style.css" rel = stylesheet>
-   <script src = "script.js" defer></script>
-</head>
-<body>
-    <div style ="height: 5vw;"></div>
-    <div id= "clk_shp_dig" class = "clk_shp">
-        <p id = "Time"></p>
-        <p id = "meri"></p>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div style="height: 5vw"></div>
+    <div id="clk_shp_dig" class="clk_shp">
+      <p id="Time"></p>
+      <p id="meri"></p>
     </div>
-    <div id = "clk_shp_ana" class = "clk_shp">
-        <div class = "number" id ="one">
-            <p>1</p>
-        </div>
-        <div class = "number" id ="two">
-            <p>2</p>
-        </div>
-        <div class = "number" id ="three">
-            <p>3</p>
-        </div>
-        <div class = "number" id ="four">
-            <p>4</p>
-        </div>
-        <div class = "number" id ="five">
-            <p>5</p>
-        </div>
-        <div class = "number" id ="six">
-            <p>6</p>
-        </div>
-        <div class = "number" id ="seven">
-            <p>7</p>
-        </div>
-        <div class = "number" id ="eight">
-            <p>8</p>
-        </div>
-        <div class = "number" id ="nine">
-            <p>9</p>
-        </div>
-        <div class = "number" id ="ten">
-            <p>10</p>
-        </div>
-        <div class = "number" id ="eleven">
-            <p>11</p>
-        </div>
-        <div class = "number" id ="tweleve">
-            <p>12</p>
-        </div>
-        <div class = "hands" id = 'nh'>
-
-        </div>
-        <div class = "hands" id = 'nm'>
-            
-        </div>
-        <div class = "hands" id = 'ns'>
-            
-        </div>
-        <div id = center>
-
-        </div>
+    <div id="clk_shp_ana" class="clk_shp">
+      <div class="number">
+        <p>1</p>
+      </div>
+      <div class="number">
+        <p>2</p>
+      </div>
+      <div class="number">
+        <p>3</p>
+      </div>
+      <div class="number">
+        <p>4</p>
+      </div>
+      <div class="number">
+        <p>5</p>
+      </div>
+      <div class="number">
+        <p>6</p>
+      </div>
+      <div class="number">
+        <p>7</p>
+      </div>
+      <div class="number">
+        <p>8</p>
+      </div>
+      <div class="number">
+        <p>9</p>
+      </div>
+      <div class="number">
+        <p>10</p>
+      </div>
+      <div class="number">
+        <p>11</p>
+      </div>
+      <div class="number">
+        <p>12</p>
+      </div>
+      <div class="hands" id="nh"></div>
+      <div class="hands" id="nm"></div>
+      <div class="hands" id="ns"></div>
+      <div id="clock-center"></div>
     </div>
-    <div id = "to_shift_text_down">
-        <!--This is required to push all the content below the clk_shp div's as both their position is set to absolute-->
+    <div id="to_shift_text_down">
+      <!--This is required to push all the content below the clk_shp div's as both their position is set to absolute-->
     </div>
-    <div style = 'height:40px'></div>
-    <div  id = "choice">
-    <div id = "dig_cont" class = "rad_cont">
-    <input type = "radio" name = "kind" id = "digop"> <p style="display:inline;" class = "ana_or_dig">Digital</p>
+    <div id="choice">
+      <div id="dig_cont" class="radio-button-container">
+        <input type="radio" name="kind" id="digop" />
+        <p style="display: inline" class="ana_or_dig">Digital</p>
+      </div>
+      <div id="ana_cont" class="radio-button-container">
+        <input type="radio" name="kind" id="anaop" />
+        <p style="display: inline" class="ana_or_dig">Analog</p>
+      </div>
     </div>
-    <div id = "ana_cont" class = "rad_cont">
-    <input type = "radio" name = "kind"id ="anaop"> <p style = "display:inline;" class = "ana_or_dig">Analog</p>
+    <div id="color-selection-div">
+      <span>Time color: </span>
+      <input
+        type="color"
+        oninput="clockColor(event)"
+        style="margin: auto 8px"
+      />
+      <svg
+        onclick="resetColor()"
+        id="reset-color"
+        width="24px"
+        height="24px"
+        viewBox="0 0 21 21"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          transform="matrix(0 1 1 0 2.5 2.5)"
+        >
+          <path
+            d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"
+          />
+          <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)" />
+        </g>
+      </svg>
     </div>
+    <p id="date"></p>
+    <div id="information-note-div">
+      <p style="margin-bottom: 30px">This clock is set to your system clock.</p>
+      <p>
+        This clock will be in <b>night mode</b> between <b>9p.m. and 5a.m.</b>
+      </p>
     </div>
-    <p id = "date"></p>
-    <div id = "note">
-    <p>This clock is set to your system clock.</p> 
-    <div style = "height:3vh;"></div>
-    <p>This clock will be in <b>night mode</b> between <b>9p.m. and 5a.m.</b> </p>
-</div>
-</body>
+  </body>
 </html>
