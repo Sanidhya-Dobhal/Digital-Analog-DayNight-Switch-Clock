@@ -13,13 +13,12 @@
     <link href="style.css" rel="stylesheet" />
     <script src="script.js" defer></script>
   </head>
-  <body>
-    <div style="height: 5vw"></div>
-    <div id="clk_shp_dig" class="clk_shp">
-      <p id="Time"></p>
+  <body style="padding-top: 10vh">
+    <div id="digital-clock" class="clocks">
+      <p id="time"></p>
       <p id="meri"></p>
     </div>
-    <div id="clk_shp_ana" class="clk_shp">
+    <div id="analog-clock" class="clocks">
       <div class="number">
         <p>1</p>
       </div>
@@ -62,14 +61,14 @@
       <div id="clock-center"></div>
     </div>
     <div id="to_shift_text_down">
-      <!--This is required to push all the content below the clk_shp div's as both their position is set to absolute-->
+      <!--This is required to push all the content below the clocks div's as both their position is set to absolute-->
     </div>
     <div id="choice">
-      <div id="dig_cont" class="radio-button-container">
+      <div class="radio-buttons-container">
         <input type="radio" name="kind" id="digop" />
         <p style="display: inline" class="ana_or_dig">Digital</p>
       </div>
-      <div id="ana_cont" class="radio-button-container">
+      <div class="radio-buttons-container">
         <input type="radio" name="kind" id="anaop" />
         <p style="display: inline" class="ana_or_dig">Analog</p>
       </div>
@@ -78,7 +77,7 @@
       <span>Time color: </span>
       <input
         type="color"
-        oninput="clockColor(event)"
+        oninput="changeClockColor(event)"
         style="margin: auto 8px"
       />
       <svg

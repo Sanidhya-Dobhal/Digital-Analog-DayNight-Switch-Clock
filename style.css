@@ -2,7 +2,7 @@
   margin: 0;
   font-family: "Poppins";
 }
-.clk_shp {
+.clocks {
   position: absolute;
   left: 40vw;
   width: 20vw;
@@ -15,22 +15,21 @@
     rgb(221, 255, 0)
   );
 }
-#clk_shp_dig {
+#digital-clock {
   display: grid;
   align-items: center;
   justify-content: end;
   grid-template-columns: auto auto;
   grid-column-gap: 1vw;
 }
-#clk_shp_ana {
+#analog-clock {
   display: flex;
   justify-content: center;
 }
 #to_shift_text_down {
   height: 20vw;
-  visibility: hidden;
 }
-#Time {
+#time {
   font-size: 3.6vw;
 }
 #meri {
@@ -53,7 +52,6 @@
   position: absolute;
   top: 10.3vw;
   transform-origin: left;
-  visibility: hidden;
 }
 #nh {
   width: 6vw;
@@ -95,7 +93,7 @@
 #reset-color:hover {
   opacity: 0.5;
 }
-.radio-button-container:hover {
+.radio-buttons-container:hover {
   cursor: pointer;
 }
 input[type="radio"]:hover {
@@ -113,12 +111,12 @@ input[type="radio"]:hover {
   padding: 0;
 }
 @media screen and (max-width: 850px) {
-  .clk_shp {
+  .clocks {
     width: 170px;
     height: 170px;
     border-radius: 85px;
   }
-  #Time {
+  #time {
     font-size: 30.6px;
   }
   #meri {
