@@ -17,8 +17,7 @@ A front-end clock project that showcases both digital and analog representations
   Date is updated automatically at 12a.m.
 - <b><u>User-Friendly</u>:</b> <br>
   Simple and intuitive interface for easy interaction.
-  <br>
--<b><u>Fully Responsive</u>:</b>
+- <b><u>Fully Responsive</u>:</b>
   The webpage will always fit gracefully inside the browser screen, no matter what the size of browser screen is.
   <br>
   Screen size as small as 180px will also show the webpage perfectly <br>
