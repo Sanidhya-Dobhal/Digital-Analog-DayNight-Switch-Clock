@@ -25,6 +25,7 @@
 #analog-clock {
   display: flex;
   justify-content: center;
+  display:none;
 }
 #to_shift_text_down {
   height: 20vw;
