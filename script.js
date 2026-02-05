@@ -10,7 +10,6 @@ let hoursNeedle = document.getElementById("nh");
 let analogSetIntervalId; //Stores the id of the setInterval function that calls the function func
 analogNumbersRotation();
 setDigital();
-windowWidthHandler();
 digitalRadioContainer = document.querySelector(
   ".radio-buttons-container:nth-child(1)"
 );
@@ -18,6 +17,7 @@ analogRadioContainer = document.querySelector(
   ".radio-buttons-container:nth-child(2)"
 );
 digitalRadioContainer.addEventListener("click", setDigital);
+analogRadioContainer.addEventListener("click", setAnalog);
 function analogNumbersRotation() {
   //This function is used to rotate all the numbers in analog clock which was earlier done in CSS one by one
   for (i = 1; i <= 12; i++) {
@@ -35,19 +35,10 @@ function setDigital() {
   analogClock.style.display = "none";
   setInterval(setDigitalTime, 100);
 }
-analogRadioContainer.addEventListener("click", setAnalog);
 function setAnalog() {
   anaclk.checked = true;
-  clearInterval(analogSetIntervalId); //This is required as without this if the analog option is selected twice the there would be 2 setinterval's runnig and then if we select digital then only the alstest setInterval function will be stopped but the others will keep getting executed .Therefore this command will stop all the previous sstinterval's and inly the one that would be in the analogSetIntervalId variable would be running .
+  clearInterval(analogSetIntervalId); //This is required as without this if the analog option is selected twice, there would be 2 setinterval's running and then if we select digital, only the latest setInterval function will be stopped but the others will keep running.Therefore this command will stop all the previous setinterval's and only the one that would be in the analogSetIntervalId variable would be running.
   analogSetIntervalId = setInterval(setAnalogTime, 100);
-}
-window.addEventListener("resize", windowWidthHandler);
-function windowWidthHandler() {
-  let leftSpace;
-  if (window.innerWidth > 850) leftSpace = "40vw";
-  else leftSpace = `${(window.innerWidth - 170) / 2}px`;
-  analogClock.style.left = document.getElementById("digital-clock").style.left =
-    leftSpace;
 }
 function setDigitalTime() {
   let meri; //a.m. or p.m.
