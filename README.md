@@ -11,19 +11,19 @@ A front-end clock project that showcases both digital and analog representations
   Represented by hour, minute, and second hands over a clock face.
 - __Inter-Convertibility:__ 
 <br>Easily switch between digital and analog clock views with a click of a button.
-<br>
 
 - __Automatic Day-to-Night:__ <br>The clock theme changes to a darker, more eye-friendly version from 9 p.m. to 5 a.m.
 
-- __Customizable Time color:__ 
-<br>
-User can select the color from the color picker in which the time should be displayed. It changes the digital time and also changes the color of the numbers in the analog clock
-- __Day and Date(dd/mm/yyyy):__
-<br>
+- __Customizable Time color:__<br>
+  User can select the color from the color picker in which the time should be displayed. It changes the digital time and also changes the color of the numbers in the analog clock
+
+- __Day and Date(dd/mm/yyyy):__<br>
   Day and date is updated automatically at 12a.m.
-- __User-Friendly:__ <br>
+  
+- __User-Friendly:__<br>
   Simple and intuitive interface for easy interaction.
-- __Fully Responsive:__
+  
+- __Fully Responsive:__<br>
   The webpage will always fit gracefully inside the browser screen, no matter what the size of browser screen is.
   <br>
   Screen size as small as 180px will also show the webpage perfectly <br>
