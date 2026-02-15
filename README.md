@@ -4,20 +4,26 @@ A front-end clock project that showcases both digital and analog representations
 
 ## Features :
 
-- <b><u>Digital Clock</u>:</b>
+- __Digital Clock:__ 
   <br>Displayed in a 12-hour format with hours, minutes, and seconds.
-- <b><u>Analog Clock</u>:</b>
+- __Analog Clock:__
   <br>
   Represented by hour, minute, and second hands over a clock face.
-- <b><u>Inter-Convertibility</u>:</b> <br> Easily switch between digital and analog clock views with a click of a button. -<b><u>Customization:</u> You can customize the clock your way by selecting the color in which time would be displayed</b>
-- <b><u>Automatic Day-to-Night</u>:</b> <br>The clock theme changes to a darker, more eye-friendly version from 9 p.m. to 5 a.m.
+- __Inter-Convertibility:__ 
+<br>Easily switch between digital and analog clock views with a click of a button.
+<br>
 
-- <b><u>Customizable Time color</u>:</b> User can select the color from the colr picker in which the time should be displayed. It changes the digital time and also changes the color of the numbers in the analog clock
-- <b><u>Date(dd/mm/yyyy)</u>:</b>
-  Date is updated automatically at 12a.m.
-- <b><u>User-Friendly</u>:</b> <br>
+- __Automatic Day-to-Night:__ <br>The clock theme changes to a darker, more eye-friendly version from 9 p.m. to 5 a.m.
+
+- __Customizable Time color:__ 
+<br>
+User can select the color from the color picker in which the time should be displayed. It changes the digital time and also changes the color of the numbers in the analog clock
+- __Day and Date(dd/mm/yyyy):__
+<br>
+  Day and date is updated automatically at 12a.m.
+- __User-Friendly:__ <br>
   Simple and intuitive interface for easy interaction.
-- <b><u>Fully Responsive</u>:</b>
+- __Fully Responsive:__
   The webpage will always fit gracefully inside the browser screen, no matter what the size of browser screen is.
   <br>
   Screen size as small as 180px will also show the webpage perfectly <br>
@@ -41,7 +47,7 @@ A front-end clock project that showcases both digital and analog representations
 
 ## Technologies Used :
 
-This project has been created using <b>HTML,vanilla CSS ,vanilla javascript</b> .
+This project has been created using __HTML,vanilla CSS ,vanilla javascript__ .
 
 ## Installation and Usage :
 
