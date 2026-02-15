@@ -92,13 +92,7 @@ function setAnalogTime() {
   setBackgroundColor(currentDateTime);
 }
 function setDate(currentDateTime) {
-  if (currentDateTime.getDate() < 10)
-    dateElement.innerText = "0" + currentDateTime.getDate() + "/";
-  else dateElement.innerText = currentDateTime.getDate() + "/";
-  if (currentDateTime.getMonth() < 9)
-    dateElement.innerText += "0" + (currentDateTime.getMonth() + 1) + "/";
-  else dateElement.innerText += currentDateTime.getMonth() + 1 + "/";
-  dateElement.innerText += currentDateTime.getFullYear();
+  dateElement.innerText = currentDateTime?.toLocaleDateString('en-GB', { weekday: 'long' }) + " " + currentDateTime?.toLocaleDateString('en-GB');
 }
 function setBackgroundColor(currentDateTime) {
   let note = document.getElementById("information-note-div");
